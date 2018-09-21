@@ -19,6 +19,7 @@ function maxChar(str) {
     // }
     chars[char] = chars[char] + 1 || 1;
   }
+
   //object starts with o, but they didn't choose to use for of for obj
   for (let char in chars){
     if (chars[char] > max) {
