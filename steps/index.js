@@ -38,7 +38,7 @@ function stepsIterate(n){
   }
 }
 
-function steps(n, row=0, stair = ''){
+function stepsRecursionMyattempt(n, row=0, stair = ''){
   // settling base case: if the row number is n, exit
   if (n=== row){
     return;
@@ -59,6 +59,28 @@ function steps(n, row=0, stair = ''){
     stair += ' '; // if enough #, start addign spaces!
   }
   steps(n, row, stair);
+
+}
+
+function steps(n, row=0, stair = ''){
+  // settling base case: if the row number is n, exit
+  if (n=== row){
+    return;
+  }
+
+  // if the length of the current stair is equal to n
+  // can print alr!
+  if (n === stair.length){
+    console.log(stair)
+    // do the next row!
+    return steps(n, row+1); //MUST BE RETURN
+  }
+
+  // if stair.length <= row is true,
+  // add = #
+  // else add = ' '
+  const add = stair.length <= row ? '#' : ' ';
+  steps(n, row, stair+add);
 
 }
 
