@@ -64,7 +64,7 @@ function stepsRecursionMyattempt(n, row=0, stair = ''){
 
 function steps(n, row=0, stair = ''){
   // settling base case: if the row number is n, exit
-  if (n=== row){
+  if (n === row){
     return;
   }
 
@@ -83,5 +83,7 @@ function steps(n, row=0, stair = ''){
   steps(n, row, stair+add);
 
 }
+
+
 
 module.exports = steps;
