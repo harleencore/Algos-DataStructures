@@ -14,6 +14,50 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+//appparently this method is horrible because
+//i shouldnt be changing variables like pounds and spaces
+function pyramidBAD(n) {
+  const max = 1 + 2 * (n-1);
+  for (let row=0; row < n; row++){
+    var level = '';
+    var pounds = 1 + 2*row;
+    var spaces = n - 1 - row;
+    for (let col = 0; col < max ; col++){
+      if (spaces!==0){
+        level += ' ';
+        spaces--;
+      } else if (pounds!==0){
+        level += '#';
+        pounds--;
+      } else {
+        level+= ' ';
+      }
+
+    }
+    console.log(level);
+  }
+}
+
+function pyramid(n) {
+  const max = 1 + 2 * (n-1);
+  for (let row=0; row < n; row++){
+    var level = '';
+    var pounds = 1 + 2*row;
+    var spaces = n - 1 - row;
+    for (let col = 0; col < max ; col++){
+      if (col < spaces){
+        level += ' ';
+      } else if (col < spaces + pounds){
+        level += '#';
+      } else {
+        level+= ' ';
+      }
+
+    }
+    console.log(level);
+  }
+}
+
+
 
 module.exports = pyramid;
