@@ -17,11 +17,11 @@
 //appparently this method is horrible because
 //i shouldnt be changing variables like pounds and spaces
 function pyramidBAD(n) {
-  const max = 1 + 2 * (n-1);
+  const max = 2 * n - 1;
   for (let row=0; row < n; row++){
-    var level = '';
-    var pounds = 1 + 2*row;
-    var spaces = n - 1 - row;
+    let level = '';
+    let pounds = 1 + 2*row;
+    let spaces = n - 1 - row;
     for (let col = 0; col < max ; col++){
       if (spaces!==0){
         level += ' ';
@@ -38,12 +38,12 @@ function pyramidBAD(n) {
   }
 }
 
-function pyramid(n) {
-  const max = 1 + 2 * (n-1);
+function pyramid2ndAttempt(n) {
+  const max = 2 * n - 1;
   for (let row=0; row < n; row++){
-    var level = '';
-    var pounds = 1 + 2*row;
-    var spaces = n - 1 - row;
+    let level = '';
+    let pounds = 1 + 2*row;
+    let spaces = n - 1 - row;
     for (let col = 0; col < max ; col++){
       if (col < spaces){
         level += ' ';
@@ -55,6 +55,49 @@ function pyramid(n) {
 
     }
     console.log(level);
+  }
+}
+
+//stephen's solution
+function pyramidIterative(n){
+  const midpoint = Math.floor((2 * n - 1) / 2);
+  for (let row = 0; row < n; row ++){
+    let level = '';
+
+    for (let column = 0; column < 2 * n - 1; column++){
+      if (midpoint - row <= column && midpoint + row >= column){
+        level += '#';
+      } else{
+        level += ' ';
+      }
+    }
+    console.log(level);
+  }
+}
+
+//recursion
+function pyramidRecursion(n, row=0, level = ''){
+  const max = 2 * n - 1;
+  const midpoint = Math.floor(max/2);
+  if (row === n ){
+    return;
+  }
+  else if (level.length === max){
+    console.log(level);
+    return pyramid(n, row+1);
+  }
+
+  const add = level.length >= midpoint - row && level.length <= midpoint + row ? '#' : ' ';
+  pyramid(n, row, level + add);
+
+}
+
+//benoits solution
+function pyramid(n){
+  for (let i = 0; i<n; i++){
+    let pounds = 1 + 2*i;
+    let spaces = n - i - 1;
+    console.log(" ".repeat(spaces)+ "#".repeat(pounds) + " ".repeat(spaces));
   }
 }
 
