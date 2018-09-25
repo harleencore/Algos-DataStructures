@@ -6,12 +6,11 @@ def matrix(n):
     x = 0
     y = 0
     i = 1
-    stop = False
 
     # y handles rows (+ve vertically down-- changing y changes row)
     # x handles columns (+ve horizontally right-- changing x changes col)
 
-    while not stop:
+    while i <= n*n:
         M[y][x] = i
         if dirn[0] > 0:
             if x+dirn[0] >= n:
@@ -33,13 +32,12 @@ def matrix(n):
                 dirn = [1,0]
             elif M[ y+dirn[1]][x] != 0:
                 dirn = [1, 0]
-        if i== n*n:
-            stop = True
-        else:
 
-            i+=1
-            x+=dirn[0]
-            y+=dirn[1]
+
+
+        i+=1
+        x+=dirn[0]
+        y+=dirn[1]
     for row in range (n):
         print(M[row])
 
