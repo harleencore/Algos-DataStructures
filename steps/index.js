@@ -23,15 +23,19 @@ function stepsMyAttempt(n) {
   }
 }
 
+// 2 nested for loops-> n^2
+// outer loop runs n times
+// inner loop runs n times
+// O(n^2) => quadratic runtime
 function stepsIterate(n){
   for(let row = 0; row<n; row++){ //iterate through rows
-    var stair = "";
+    var stair = '';
     for(let col = 0; col<n; col++){ //iterate through columns
       if (col<=row){ //if the current col is less than or equal to the current row
-        stair += "#";
+        stair += '#';
       }
       else{
-        stair += " ";
+        stair += ' ';
       }
     }
     console.log(stair);

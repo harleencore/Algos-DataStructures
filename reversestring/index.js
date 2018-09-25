@@ -23,6 +23,8 @@ function arrayReverse(str) {
 
 }
 
+// O(n) => linear runtime
+// each additional character = 1 step through 1 loop
 function forLoopReverse(str){
   let reversed = '';
 
