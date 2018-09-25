@@ -1,3 +1,4 @@
+#  benoits solution: change direction if at edge or if next element in dirn is filled
 def matrix(n):
     dirn=[1,0] # initialize direction from right to left
     # M= [[0]*n] *n # creates a list of n 0s, then a list of n references to that
@@ -15,25 +16,21 @@ def matrix(n):
         if dirn[0] > 0:
             if x+dirn[0] >= n:
                 dirn = [0,1]
-                # continue
             elif M[y][x+dirn[0]] != 0:
                 dirn = [0,1]
         elif dirn[0] < 0:
             if x+dirn[0] <0:
                 dirn = [0,-1]
-                # continue
             elif M[y][x+dirn[0]] != 0:
                 dirn = [0,-1]
         elif dirn[1] > 0:
             if y+dirn[1] >= n:
                 dirn = [-1,0]
-                # continue
             elif M[ y+dirn[1]][x] != 0:
                 dirn = [-1,0]
         elif dirn[1] < 0:
             if y+dirn[1] <0:
                 dirn = [1,0]
-                # continue
             elif M[ y+dirn[1]][x] != 0:
                 dirn = [1, 0]
         if i== n*n:
