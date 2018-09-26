@@ -24,6 +24,33 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+// this passes the tests but
+// i'm pretty sure it's wrong because
+// it'll fail if sourceTwo is longer than sourceOne
+// function weave(sourceOne, sourceTwo) {
+//   const queue = new Queue();
+//   while (sourceOne.peek() !== undefined){
+//     queue.add(sourceOne.remove());
+//     if (sourceTwo.peek() !== undefined){
+//       queue.add(sourceTwo.remove());
+//     }
+//
+//   }
+//   return queue;
+// }
 
+
+function weave(sourceOne, sourceTwo){
+  const queue = new Queue();
+  while(sourceOne.peek() || sourceTwo.peek()){
+    if (sourceOne.peek()){
+      queue.add(sourceOne.remove());
+    }
+    if(sourceTwo){
+      queue.add(sourceTwo.remove());
+    }
+
+  }
+  return queue;
+}
 module.exports = weave;
