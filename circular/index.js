@@ -18,7 +18,8 @@ function circular(list) {
   while(fast.next && fast.next.next){
     fast = fast.next.next;
     slow = slow.next;
-    if (fast === slow){
+    if (fast === slow){ // this means strictly equal
+      //double equal will return true for same data
       return true;
     }
   }
