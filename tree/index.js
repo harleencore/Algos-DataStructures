@@ -35,6 +35,13 @@ class Tree {
     const arr = [this.root];
     while(arr.length){ //until it is null;
       const node = arr.shift(); //shift returns first element
+      // DONT: node.children because that resturns array
+      // you wan't the actual nodes
+      // you could write:
+      // for (let child of node.children){
+      // arr.push(child);}
+      // but ...node.children does the same thing
+    }
       arr.push(...node.children); //add node's children to the end of the array
       fn(node);
     }
