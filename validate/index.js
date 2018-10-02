@@ -13,6 +13,11 @@ function validate(node, min = null, max = null) {
   if (min !== null && node.data < min){
     return false;
   }
+  // need to check if valiate returns false
+  // previousy did not return anything from validate
+  // setting true is difficult in this case because you finish one fnction after
+  // you've set off other recursive loops, but there's no way to tell if
+  // you've finished looping
   if (node.left && !validate(node.left, min, node.data)){
     return false;
   }
