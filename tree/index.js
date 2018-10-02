@@ -41,11 +41,12 @@ class Tree {
       // for (let child of node.children){
       // arr.push(child);}
       // but ...node.children does the same thing
-    }
+
       arr.push(...node.children); //add node's children to the end of the array
       fn(node);
     }
   }
+
   traverseDF(fn){
     const arr = [this.root];
     while(arr.length){
