@@ -6,6 +6,8 @@
 // the parent
 
 function validate(node, min = null, max = null) {
+  // why do you need to check for null thoug?
+  // will node.data > max return true if max is null?
   if(max !== null && node.data > max){
     return false;
   }
